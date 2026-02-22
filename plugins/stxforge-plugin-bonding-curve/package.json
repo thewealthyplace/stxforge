@@ -1,0 +1,13 @@
+{
+  "name": "stxforge-plugin-bonding-curve",
+  "version": "1.0.0",
+  "description": "Bonding curve token contract template for stxforge",
+  "main": "index.js",
+  "stxforge": {
+    "plugin": true,
+    "verified": true,
+    "templates": ["bonding-curve"]
+  },
+  "keywords": ["stxforge-plugin", "stacks", "clarity", "bonding-curve", "defi"],
+  "license": "MIT"
+}
