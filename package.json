@@ -14,7 +14,6 @@
   "dependencies": {
     "chalk": "^5.3.0",
     "commander": "^11.1.0",
-    "inquirer": "^9.2.12",
     "fs-extra": "^11.2.0",
     "handlebars": "^4.7.8",
     "ora": "^7.0.1"
@@ -22,6 +21,6 @@
   "devDependencies": {
     "vitest": "^1.2.0"
   },
-  "keywords": ["stacks", "clarity", "blockchain", "cli", "scaffolding"],
+  "keywords": ["stacks", "clarity", "blockchain", "cli", "scaffolding", "plugins"],
   "license": "MIT"
 }

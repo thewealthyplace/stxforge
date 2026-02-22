@@ -1,0 +1,30 @@
+{
+  "name": "subscription",
+  "description": "On-chain recurring subscription payments in STX with configurable billing period",
+  "prompts": [
+    {
+      "name": "name",
+      "type": "input",
+      "message": "Service name:",
+      "validate": "length >= 2"
+    },
+    {
+      "name": "pricePerPeriod",
+      "type": "number",
+      "message": "Price per billing period (in uSTX):",
+      "default": 1000000
+    },
+    {
+      "name": "periodBlocks",
+      "type": "number",
+      "message": "Billing period in blocks (e.g. 4320 = ~30 days):",
+      "default": 4320
+    },
+    {
+      "name": "gracePeriod",
+      "type": "number",
+      "message": "Grace period in blocks before access is revoked:",
+      "default": 144
+    }
+  ]
+}

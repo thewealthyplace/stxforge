@@ -1,0 +1,29 @@
+{
+  "name": "bonding-curve",
+  "description": "A token with an automated market maker using a bonding curve price function",
+  "prompts": [
+    {
+      "name": "name",
+      "type": "input",
+      "message": "Token name:",
+      "validate": "length >= 2"
+    },
+    {
+      "name": "symbol",
+      "type": "input",
+      "message": "Token symbol (uppercase):"
+    },
+    {
+      "name": "reserveToken",
+      "type": "input",
+      "message": "Reserve token contract (e.g. .wrapped-stx):",
+      "default": ".wrapped-stx"
+    },
+    {
+      "name": "slope",
+      "type": "number",
+      "message": "Curve slope (integer, higher = steeper price growth):",
+      "default": 1
+    }
+  ]
+}

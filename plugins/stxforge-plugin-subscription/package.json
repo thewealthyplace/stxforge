@@ -1,0 +1,13 @@
+{
+  "name": "stxforge-plugin-subscription",
+  "version": "1.0.0",
+  "description": "Recurring subscription payment contract template for stxforge",
+  "main": "index.js",
+  "stxforge": {
+    "plugin": true,
+    "verified": true,
+    "templates": ["subscription"]
+  },
+  "keywords": ["stxforge-plugin", "stacks", "clarity", "subscription", "payments"],
+  "license": "MIT"
+}
