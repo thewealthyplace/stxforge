@@ -7,19 +7,21 @@
     "stxforge": "./src/cli.js"
   },
   "scripts": {
-    "audit": "node src/cli.js audit",
+    "dev": "node src/cli.js",
     "test": "vitest run",
     "lint": "eslint src/**/*.js"
   },
   "dependencies": {
     "chalk": "^5.3.0",
     "commander": "^11.1.0",
+    "inquirer": "^9.2.12",
     "fs-extra": "^11.2.0",
+    "handlebars": "^4.7.8",
     "ora": "^7.0.1"
   },
   "devDependencies": {
     "vitest": "^1.2.0"
   },
-  "keywords": ["stacks", "clarity", "blockchain", "cli", "audit", "security"],
+  "keywords": ["stacks", "clarity", "blockchain", "cli", "scaffolding"],
   "license": "MIT"
 }
