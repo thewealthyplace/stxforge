@@ -1,0 +1,44 @@
+name: Clarity Audit
+
+on:
+  push:
+    paths:
+      - 'contracts/**/*.clar'
+  pull_request:
+    paths:
+      - 'contracts/**/*.clar'
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    name: Run stxforge audit
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run Clarity security audit
+        run: npm run audit -- --json > audit-report.json || true
+
+      - name: Upload audit report
+        uses: actions/upload-artifact@v4
+        with:
+          name: audit-report
+          path: audit-report.json
+
+      - name: Fail on critical findings
+        run: node -e "
+          const r = require('./audit-report.json');
+          if (r.summary.critical > 0) {
+            console.error('Critical audit findings detected!');
+            process.exit(1);
+          }
+          console.log('Audit passed:', r.summary);
+        "

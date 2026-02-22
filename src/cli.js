@@ -2,28 +2,21 @@
 
 const { program } = require('commander');
 const chalk = require('chalk');
-const { addToken } = require('./commands/add-token');
+const { audit } = require('./commands/audit');
 
 program
   .name('stxforge')
   .description('Smart contract scaffolding CLI for the Stacks ecosystem')
   .version('1.0.0');
 
-const add = program.command('add').description('Add a new contract to your project');
-
-add
-  .command('token')
-  .description('Scaffold a SIP-010 fungible token contract')
-  .option('--name <name>', 'Token name')
-  .option('--symbol <symbol>', 'Token symbol')
-  .option('--decimals <decimals>', 'Number of decimals')
-  .option('--supply <supply>', 'Initial supply')
-  .option('--mintable', 'Enable minting capability')
-  .option('--burnable', 'Enable burning capability')
-  .option('--capped', 'Enable max supply cap')
+// stxforge audit [--json]
+program
+  .command('audit')
+  .description('Run Clarity security checklist against contracts/ directory')
+  .option('--json', 'Output results as JSON (machine-readable)')
   .action(async (opts) => {
     try {
-      await addToken(opts);
+      await audit(opts);
     } catch (err) {
       console.error(chalk.red('Error:'), err.message);
       process.exit(1);
